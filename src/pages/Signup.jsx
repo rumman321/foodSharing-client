@@ -2,6 +2,7 @@ import React, { useContext, useState } from 'react';
 import { AuthContext } from '../providers/AuthProvider';
 import { Link, useNavigate } from 'react-router-dom';
 import GoogleLogin from '../commponents/GoogleLogin';
+import toast from 'react-hot-toast';
 
 const Signup = () => {
     const {userNewCreate,setUser,upDateUserProfile}=useContext(AuthContext)
@@ -32,7 +33,9 @@ const Signup = () => {
               photoURL:photo
               })
               .then(()=>{
-                  navigate("/")
+                alert('Signup Successful')
+                toast.success('Signup Successful')
+                navigate("/")
               }).catch(err=> console.log("ERROR ", err))
             
             
