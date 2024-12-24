@@ -1,9 +1,10 @@
 import React from 'react';
+import Carousel from '../commponents/Carousel';
 
 const Home = () => {
     return (
         <div>
-            this is home layout
+           <Carousel></Carousel>
         </div>
     );
 };
