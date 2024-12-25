@@ -25,6 +25,13 @@ export const router = createBrowserRouter([
       {
         path: "/food/:id",
         element: <Details></Details>,
+        loader: async({params})=>{
+          const res=await fetch(`${import.meta.env.VITE_API_URL}/foods`)
+          const data = await res.json()
+          const singleData=data.find(d=> d._id==params.id)
+          
+          return singleData
+      }
       },
       {
         path: "/addFood",
