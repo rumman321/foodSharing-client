@@ -33,9 +33,9 @@ const Signup = () => {
               photoURL:photo
               })
               .then(()=>{
-                alert('Signup Successful')
+                // alert('Signup Successful')
                 toast.success('Signup Successful')
-                navigate("/")
+               setTimeout(()=>{ navigate("/")},1000)
               }).catch(err=> console.log("ERROR ", err))
             
             

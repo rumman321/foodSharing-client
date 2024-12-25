@@ -14,7 +14,7 @@ const AvailableFood = () => {
         setFoods(data)
         
     }
-    console.log(foods)
+    // console.log(foods)
 
   return (
     <div className="pt-20">

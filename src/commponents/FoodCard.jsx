@@ -1,4 +1,5 @@
 import React from "react";
+import { NavLink } from "react-router-dom";
 
 const FoodCard = ({food}) => {
     const {foodName,foodImage,foodQuantity,pickupLocation,_id}=food || {}
@@ -19,7 +20,9 @@ const FoodCard = ({food}) => {
           <p>Pickup-Location : {pickupLocation}</p>
         
           <div className="card-actions justify-end">
+            <NavLink to={`/food/${_id}`}>
             <button className="btn btn-primary">Details</button>
+            </NavLink>
           </div>
         </div>
       </div>
