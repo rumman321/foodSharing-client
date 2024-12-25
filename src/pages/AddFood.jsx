@@ -4,11 +4,13 @@ import "react-datepicker/dist/react-datepicker.css";
 import { AuthContext } from "../providers/AuthProvider";
 import Swal from "sweetalert2";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 
 const AddFood = () => {
-  const { user } = useContext(AuthContext);
 
+  const navigate=useNavigate()
+  const { user } = useContext(AuthContext);
   const [expiredDateTime, setExpiredDateTime] = useState(new Date());
 
   const handleAddFood = async (e) => {
@@ -64,6 +66,13 @@ const AddFood = () => {
         else{
             const {data}= await axios.post(`${import.meta.env.VITE_API_URL}/addfood`,newFood)
             console.log("Food Data:", data);
+            Swal.fire({
+              icon: "success",
+              title: "Movie Added!",
+              text: "Your movie has been added successfully.",
+            
+            });
+            navigate('/availableFood')
         }
 
    
