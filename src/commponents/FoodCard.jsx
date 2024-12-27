@@ -14,7 +14,7 @@ const FoodCard = ({ food }) => {
     <div>
       <div className="card card-compact bg-base-100 w-96 shadow-xl">
         <figure>
-          <img className="w-[200px] h-[200px]" src={foodImage} alt={foodName} />
+          <img className="w-[200px] h-[200px]" referrerPolicy="no-referrer" src={foodImage} alt={foodName} />
         </figure>
         <div className="card-body">
           <h2 className="card-title">Food Name : {foodName} </h2>

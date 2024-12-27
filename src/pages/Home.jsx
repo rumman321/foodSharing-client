@@ -4,6 +4,7 @@ import axios from "axios";
 import FoodCard from "../commponents/FoodCard";
 import { useNavigate } from "react-router-dom";
 
+
 const Home = () => {
   const navigate = useNavigate();
   const [foods, setFoods] = useState([]);
@@ -29,6 +30,9 @@ const Home = () => {
         <button className="btn mt-10 " onClick={()=>navigate('/availableFood')}>
             View All
         </button>
+        
+      
+      
       </div>
     </div>
   );
