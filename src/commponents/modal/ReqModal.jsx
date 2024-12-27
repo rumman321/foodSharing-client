@@ -35,11 +35,11 @@ const ReqModal = ({ _id, data }) => {
       };
 
         try {
-            const {data}= await axios.post(`${import.meta.env.VITE_API_URL}/request`,reqFood)
+            const {data}= await axios.post(`${import.meta.env.VITE_API_URL}/addrequest`,reqFood)
             form.reset()
-            console.log('request food data ', data)
+            
 
-            // navigate('/foodRequest')
+            navigate('/foodRequest')
         } catch (error) {
             console.log(error)
            
