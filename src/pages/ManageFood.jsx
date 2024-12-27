@@ -5,6 +5,7 @@ import { AuthContext } from "../providers/AuthProvider";
 import { MdDelete } from "react-icons/md";
 import { FaRegEdit } from "react-icons/fa";
 import Swal from "sweetalert2";
+import { Link } from "react-router-dom";
 
 const ManageFood = () => {
   const { user } = useContext(AuthContext);
@@ -51,7 +52,7 @@ const ManageFood = () => {
       }
     });
   };
-  const handleEdit = () => {};
+  
 
   return (
     <div className="pt-20 w-11/12 mx-auto">
@@ -60,6 +61,7 @@ const ManageFood = () => {
           {/* head */}
           <thead>
             <tr>
+              <th>Donner Name</th>
               <th>Food Name</th>
               <th>Food Quantity</th>
               <th>Pickup Location</th>
@@ -72,13 +74,17 @@ const ManageFood = () => {
             {/* row 1 */}
             {foods.map((food) => (
               <tr key={food._id}>
+                <td>{food.donatorName}</td>
                 <td>{food.foodName}</td>
                 <td>{food.foodQuantity}</td>
                 <td>{food.pickupLocation}</td>
                 <td>{food.expiredDateTime}</td>
                 <td>
-                  {" "}
-                  <FaRegEdit size={20} onClick={handleEdit} />{" "}
+                {
+                  <Link to={`/update/${food._id}`}>
+                  <button><FaRegEdit size={20}  /></button>
+                  </Link>
+                }
                 </td>
                 <td>
                   {" "}

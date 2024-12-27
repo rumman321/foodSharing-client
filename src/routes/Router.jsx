@@ -8,6 +8,7 @@ import FoodRequest from "../pages/FoodRequest";
 import Login from "../pages/Login";
 import Signup from "../pages/Signup";
 import Details from "../commponents/Details";
+import UpdateFood from "../commponents/UpdateFood";
 
 export const router = createBrowserRouter([
   {
@@ -25,13 +26,13 @@ export const router = createBrowserRouter([
       {
         path: "/food/:id",
         element: <Details></Details>,
-        loader: async({params})=>{
-          const res=await fetch(`${import.meta.env.VITE_API_URL}/foods`)
-          const data = await res.json()
-          const singleData=data.find(d=> d._id==params.id)
-          
-          return singleData
-      }
+        loader: async ({ params }) => {
+          const res = await fetch(`${import.meta.env.VITE_API_URL}/foods`);
+          const data = await res.json();
+          const singleData = data.find((d) => d._id == params.id);
+
+          return singleData;
+        },
       },
       {
         path: "/addFood",
@@ -44,6 +45,11 @@ export const router = createBrowserRouter([
       {
         path: "/foodRequest",
         element: <FoodRequest></FoodRequest>,
+      },
+      {
+        path: "/update/:id",
+        element:<UpdateFood></UpdateFood>,
+        loader: ({params})=>fetch(`${import.meta.env.VITE_API_URL}/foods/${params.id}`)
       },
       {
         path: "/Login",
