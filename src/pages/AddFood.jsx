@@ -95,7 +95,7 @@ const AddFood = () => {
               type="text"
               id="foodName"
               name="foodName"
-              className="mt-1 p-3 block w-full rounded-md border-gray-300 shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+              className="mt-1 p-3 bg-gray-700 text-white block w-full rounded-md border-gray-300 shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
             />
           </div>
           <div>
@@ -109,7 +109,7 @@ const AddFood = () => {
               type="text"
               id="foodImage"
               name="foodImage"
-              className="mt-1 p-3 block w-full rounded-md border-gray-300 shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+              className="mt-1 p-3 bg-gray-700 text-white block w-full rounded-md border-gray-300 shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
             />
           </div>
           <div>
@@ -123,7 +123,7 @@ const AddFood = () => {
               type="number"
               id="foodQuantity"
               name="foodQuantity"
-              className="mt-1 p-3 block w-full rounded-md border-gray-300 shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+              className="mt-1 p-3 bg-gray-700 text-white block w-full rounded-md border-gray-300 shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
             />
           </div>
           <div>
@@ -137,7 +137,7 @@ const AddFood = () => {
               type="text"
               id="pickupLocation"
               name="pickupLocation"
-              className="mt-1 p-3 block w-full rounded-md border-gray-300 shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+              className="mt-1 p-3 bg-gray-700 text-white block w-full rounded-md border-gray-300 shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
             />
           </div>
           <div>
@@ -153,7 +153,7 @@ const AddFood = () => {
               selected={expiredDateTime}
               onChange={(date) => setExpiredDateTime(date)}
               dateFormat="yyyy/MM/dd"
-              className="mt-1 block p-3 w-full rounded-md border-gray-300 shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+              className="mt-1 block p-3 w-full bg-gray-700 text-white rounded-md border-gray-300 shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
             />
           </div>
           <div>
@@ -166,7 +166,7 @@ const AddFood = () => {
             <textarea
               id="additionalNotes"
               name="additionalNotes"
-              className="mt-1 p-3 block w-full rounded-md border-gray-300 shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+              className="mt-1 p-3 block bg-gray-700 text-white w-full rounded-md border-gray-300 shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
             />
           </div>
           <div>
@@ -182,7 +182,7 @@ const AddFood = () => {
               name="userImage"
               defaultValue={user?.photoURL}
               disabled
-              className="mt-1 p-3 block w-full rounded-md border-gray-300 shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+              className="mt-1 p-3 block w-full bg-gray-700 text-white rounded-md border-gray-300 shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
             />
           </div>
           <div>
@@ -198,7 +198,7 @@ const AddFood = () => {
               name="userName"
               defaultValue={user?.displayName}
               disabled
-              className="mt-1 p-3 block w-full rounded-md border-gray-300 shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+              className="mt-1 p-3 block w-full  bg-gray-700 text-white rounded-md border-gray-300 shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
             />
           </div>
           <div>
@@ -214,7 +214,7 @@ const AddFood = () => {
               name="userEmail"
               defaultValue={user?.email}
               disabled
-              className="mt-1 p-3 block w-full rounded-md border-gray-300 shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+              className="mt-1 p-3 block w-full bg-gray-700 text-white rounded-md border-gray-300 shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
             />
           </div>
           <button

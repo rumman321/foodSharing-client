@@ -3,14 +3,17 @@ import { useLoaderData, useNavigate } from "react-router-dom";
 import { AuthContext } from "../providers/AuthProvider";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
+import axios from "axios";
+import Swal from "sweetalert2";
 
 const UpdateFood = () => {
   const food = useLoaderData();
-  const navigate=useNavigate()
+  const navigate = useNavigate();
   const { user } = useContext(AuthContext);
-  
+
   const [expiredDate, setExpiredDateTime] = useState(new Date());
   const {
+    _id,
     foodName,
     foodImage,
     foodQuantity,
@@ -21,12 +24,54 @@ const UpdateFood = () => {
     donatorEmail,
     donatorImage,
   } = food;
+  const handleUpdate = async (e) => {
+    e.preventDefault();
+    const form = e.target;
+    const foodName = form.foodName.value;
+    const foodImage = form.foodImage.value;
+    const foodQuantity = form.foodQuantity.value;
+    const pickupLocation = form.pickupLocation.value;
+    const expiredDateTime = form.expiredDateTime.value;
+    const additionalNotes = form.additionalNotes.value;
+
+    const newFood = {
+      foodName,
+      foodImage,
+      foodQuantity,
+      pickupLocation,
+      expiredDateTime,
+      additionalNotes,
+    };
+    //axios kaj kn korlo na?
+    // const { data } = await axios.post(
+    //   `${import.meta.env.VITE_API_URL}/foods/${_id}`,
+    //   newFood
+    // );
+    fetch(`${import.meta.env.VITE_API_URL}/foods/${_id}`, {
+      method: "put",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(newFood),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.modifiedCount > 0) {
+          Swal.fire({
+            icon: "success",
+            title: " Food Update!",
+            text: "Your movie has been updated successfully.",
+          });
+        }
+      });
+  };
+
   return (
     <div className="pt-20 w-11/12 mx-auto">
       <div className="min-h-screen flex items-center justify-center bg-gray-100 pt-20">
         <div className="max-w-md w-full bg-white shadow-md rounded-lg p-6">
-          <h2 className="text-2xl font-bold mb-4 text-black">Add Food</h2>
-          <form className="space-y-4" >
+          <h2 className="text-2xl font-bold mb-4 text-black">Update Food</h2>
+          <form className="space-y-4 " onSubmit={handleUpdate}>
             <div>
               <label
                 htmlFor="foodName"
@@ -37,8 +82,9 @@ const UpdateFood = () => {
               <input
                 type="text"
                 id="foodName"
+                defaultValue={foodName}
                 name="foodName"
-                className="mt-1 p-3 block w-full rounded-md border-gray-300 shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                className="mt-1 p-3 bg-gray-700 text-white block w-full rounded-md border-gray-300 shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
               />
             </div>
             <div>
@@ -51,8 +97,9 @@ const UpdateFood = () => {
               <input
                 type="text"
                 id="foodImage"
+                defaultValue={foodImage}
                 name="foodImage"
-                className="mt-1 p-3 block w-full rounded-md border-gray-300 shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                className="mt-1 p-3 bg-gray-700 text-white block w-full rounded-md border-gray-300 shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
               />
             </div>
             <div>
@@ -65,8 +112,9 @@ const UpdateFood = () => {
               <input
                 type="number"
                 id="foodQuantity"
+                defaultValue={foodQuantity}
                 name="foodQuantity"
-                className="mt-1 p-3 block w-full rounded-md border-gray-300 shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                className="mt-1 p-3 bg-gray-700 text-white block w-full rounded-md border-gray-300 shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
               />
             </div>
             <div>
@@ -78,9 +126,10 @@ const UpdateFood = () => {
               </label>
               <input
                 type="text"
+                defaultValue={pickupLocation}
                 id="pickupLocation"
                 name="pickupLocation"
-                className="mt-1 p-3 block w-full rounded-md border-gray-300 shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                className="mt-1 p-3 bg-gray-700 text-white block w-full rounded-md border-gray-300 shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
               />
             </div>
             <div>
@@ -94,9 +143,10 @@ const UpdateFood = () => {
                 id="expiredDateTime"
                 name="expiredDateTime"
                 selected={expiredDate}
+                value={expiredDateTime}
                 onChange={(date) => setExpiredDateTime(date)}
                 dateFormat="yyyy/MM/dd"
-                className="mt-1 block p-3 w-full rounded-md border-gray-300 shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                className="mt-1 block bg-gray-700 text-white p-3 w-full rounded-md border-gray-300 shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
               />
             </div>
             <div>
@@ -108,8 +158,9 @@ const UpdateFood = () => {
               </label>
               <textarea
                 id="additionalNotes"
+                defaultValue={additionalNotes}
                 name="additionalNotes"
-                className="mt-1 p-3 block w-full rounded-md border-gray-300 shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                className="mt-1 p-3 bg-gray-700 text-white block w-full rounded-md border-gray-300 shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
               />
             </div>
             <div>
@@ -125,7 +176,7 @@ const UpdateFood = () => {
                 name="userImage"
                 defaultValue={user?.photoURL}
                 disabled
-                className="mt-1 p-3 block w-full rounded-md border-gray-300 shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                className="mt-1 p-3 bg-gray-700 text-white block w-full rounded-md border-gray-300 shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
               />
             </div>
             <div>
@@ -141,7 +192,7 @@ const UpdateFood = () => {
                 name="userName"
                 defaultValue={user?.displayName}
                 disabled
-                className="mt-1 p-3 block w-full rounded-md border-gray-300 shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                className="mt-1 p-3 block bg-gray-700 text-white w-full rounded-md border-gray-300 shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
               />
             </div>
             <div>
@@ -157,14 +208,14 @@ const UpdateFood = () => {
                 name="userEmail"
                 defaultValue={user?.email}
                 disabled
-                className="mt-1 p-3 block w-full rounded-md border-gray-300 shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                className="mt-1 p-3 block bg-gray-700 text-white w-full rounded-md border-gray-300 shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
               />
             </div>
             <button
               type="submit"
-              className="w-full py-2 px-4 bg-blue-600 text-white rounded-md shadow-sm hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
+              className="w-full py-2  px-4 bg-blue-600 text-white rounded-md shadow-sm hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
             >
-              Add
+              Update
             </button>
           </form>
         </div>
