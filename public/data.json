@@ -1,37 +1,37 @@
 [
   {
     "id": "001",
-    "foodimg": "https://i.ibb.co/m9R0nZL/food1.jpg",
-    "foodtitle": "Classic Margherita Pizza",
-    "description": "A traditional Italian pizza topped with fresh mozzarella, tomatoes, and basil leaves, baked to perfection."
+    "foodimg": "https://i.ibb.co.com/XpSx4jt/f1.jpg",
+    "foodtitle": "Culinary",
+    "description": "A traditional Italian Food topped with fresh mozzarella, tomatoes, and basil leaves, baked to perfection."
   },
   {
     "id": "002",
-    "foodimg": "https://i.ibb.co/6NJFcwL/food2.jpg",
+    "foodimg": "https://i.ibb.co.com/zmGmGRr/f2.jpg",
     "foodtitle": "Spaghetti Carbonara",
     "description": "A creamy pasta dish made with eggs, cheese, pancetta, and freshly ground black pepper."
   },
   {
     "id": "003",
-    "foodimg": "https://i.ibb.co/LkbcmKq/food3.jpg",
+    "foodimg": "https://i.ibb.co.com/K5SgyPX/f3.jpg",
     "foodtitle": "Avocado Toast with Eggs",
     "description": "A delicious and healthy toast topped with smashed avocado, poached eggs, and a sprinkle of chili flakes."
   },
   {
     "id": "004",
-    "foodimg": "https://i.ibb.co/gzj7yrL/food4.jpg",
+    "foodimg": "https://i.ibb.co.com/hyz1jfG/f4.jpg",
     "foodtitle": "Grilled Chicken Caesar Salad",
     "description": "A crisp salad with grilled chicken, romaine lettuce, croutons, and Caesar dressing, garnished with Parmesan."
   },
   {
     "id": "005",
-    "foodimg": "https://i.ibb.co/8dQFy5N/food5.jpg",
+    "foodimg": "https://i.ibb.co.com/y89mfzW/f5.jpg",
     "foodtitle": "Sushi Platter",
     "description": "An assorted sushi platter featuring fresh salmon, tuna, avocado rolls, and cucumber rolls."
   },
   {
     "id": "006",
-    "foodimg": "https://i.ibb.co/tXbcDZC/food6.jpg",
+    "foodimg": "https://i.ibb.co.com/7CCxk4J/f6.jpg",
     "foodtitle": "Double Chocolate Brownie",
     "description": "A rich and gooey brownie made with premium dark chocolate and topped with a drizzle of chocolate sauce."
   }
