@@ -11,6 +11,7 @@ const AddFood = () => {
 
   const navigate=useNavigate()
   const { user } = useContext(AuthContext);
+  
   const [expiredDateTime, setExpiredDateTime] = useState(new Date());
 
   const handleAddFood = async (e) => {
