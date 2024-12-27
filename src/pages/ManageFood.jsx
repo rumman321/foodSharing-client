@@ -1,6 +1,6 @@
 import axios from "axios";
 import React, { useContext, useEffect, useState } from "react";
-import FoodManageTab from "../commponents/FoodManageTab";
+
 import { AuthContext } from "../providers/AuthProvider";
 import { MdDelete } from "react-icons/md";
 import { FaRegEdit } from "react-icons/fa";
