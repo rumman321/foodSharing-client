@@ -12,7 +12,7 @@ const FoodCard = ({ food }) => {
   } = food || {};
   return (
     <div>
-      <div className="card card-compact bg-base-100 w-96 shadow-xl">
+      <div className="card card-compact bg-base-100  shadow-xl">
         <figure>
           <img className="w-[200px] h-[200px]" referrerPolicy="no-referrer" src={foodImage} alt={foodName} />
         </figure>
@@ -22,7 +22,7 @@ const FoodCard = ({ food }) => {
           <p>Pickup-Location : {pickupLocation}</p>
           <p>Expired-Date : {expiredDateTime}</p>
 
-          <div className="card-actions justify-end">
+          <div className="card-actions justify-center">
             <NavLink to={`/food/${_id}`}>
               <button className="btn btn-primary " >
                 Details

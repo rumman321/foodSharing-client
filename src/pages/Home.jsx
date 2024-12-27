@@ -19,7 +19,7 @@ const Home = () => {
   };
   console.log(foods);
   return (
-    <div className="pt-16">
+    <div className="pt-16 w-11/12 mx-auto">
       <Carousel></Carousel>
       <div className="grid grid-cols-1 gap-8 mt-8 xl:mt-16 md:grid-cols-2 lg:grid-cols-3 ">
         {foods?.slice(0,6)?.map((food) => (

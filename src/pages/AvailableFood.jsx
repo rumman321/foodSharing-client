@@ -17,7 +17,7 @@ const AvailableFood = () => {
     // console.log(foods)
 
   return (
-    <div className="pt-20">
+    <div className="pt-20 w-11/12 mx-auto">
       <div className="flex flex-col md:flex-row items-center  md:items-center md:justify-center ">
         <form>
           <div className="flex p-1 overflow-hidden border rounded-lg    focus-within:ring focus-within:ring-opacity-40 focus-within:border-blue-400 focus-within:ring-blue-300">

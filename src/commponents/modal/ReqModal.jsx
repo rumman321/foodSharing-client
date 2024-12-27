@@ -2,7 +2,7 @@ import React, { useContext, useEffect } from "react";
 
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
-import toast from "react-hot-toast";
+
 
 const ReqModal = ({ _id, data }) => {
     const navigate=useNavigate()
@@ -17,10 +17,17 @@ const ReqModal = ({ _id, data }) => {
         const donatorName = form.userName.value; 
         const donatorEmail = form.userEmail.value; 
         const donatorImage = form.userImage.value;
+        // Get current date
+         const currentDate = new Date(); 
+         const year = currentDate.getFullYear(); 
+         const month = String(currentDate.getMonth() + 1).padStart(2, '0'); // Add leading zero 
+         const day = String(currentDate.getDate()).padStart(2, '0'); // Add leading zero 
+         const requestDate = `${year}/${month}/${day}`; // Format to yyyy/mm/dd
         
         
        
     const reqFood = {
+        
         id:_id,
         foodName,
         foodImage,
@@ -32,6 +39,8 @@ const ReqModal = ({ _id, data }) => {
         donatorEmail,
         donatorImage,
         foodStatus: "requested",
+        requestDate
+        
       };
 
         try {
