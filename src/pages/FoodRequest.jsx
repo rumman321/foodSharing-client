@@ -10,7 +10,7 @@ const FoodRequest = () => {
   }, []);
   const fetchAllFood = async () => {
     //{data} korar karon axios akta obj return kore er vitor data namok obj sob data thake
-    const { data } = await axios.get(`${import.meta.env.VITE_API_URL}/request`);
+    const { data } = await axios.get(`${import.meta.env.VITE_API_URL}/request`,{withCredentials:true});
     setReqFoods(data);
   };
   return (

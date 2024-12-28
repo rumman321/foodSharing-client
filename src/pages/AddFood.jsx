@@ -65,7 +65,7 @@ const AddFood = () => {
           text: validationError,
         });}
         else{
-            const {data}= await axios.post(`${import.meta.env.VITE_API_URL}/addfood`,newFood)
+            const {data}= await axios.post(`${import.meta.env.VITE_API_URL}/addfood`,newFood,{withCredentials:true})
             console.log("Food Data:", data);
             Swal.fire({
               icon: "success",

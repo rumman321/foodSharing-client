@@ -10,7 +10,9 @@ const MainLayout = () => {
                 <Navber></Navber>
             </div>
 
+            <div className='min-h-[70vh]'>
             <Outlet></Outlet>
+            </div>
             <div className='pt-10'>
                 <Footer></Footer>
             </div>

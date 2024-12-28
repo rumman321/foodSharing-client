@@ -9,6 +9,7 @@ import Login from "../pages/Login";
 import Signup from "../pages/Signup";
 import Details from "../commponents/Details";
 import UpdateFood from "../commponents/UpdateFood";
+import PrivateRoute from "./PrivateRoute";
 
 export const router = createBrowserRouter([
   {
@@ -25,7 +26,7 @@ export const router = createBrowserRouter([
       },
       {
         path: "/food/:id",
-        element: <Details></Details>,
+        element: <PrivateRoute><Details></Details></PrivateRoute> ,
         loader: async ({ params }) => {
           const res = await fetch(`${import.meta.env.VITE_API_URL}/foods`);
           const data = await res.json();
@@ -36,15 +37,15 @@ export const router = createBrowserRouter([
       },
       {
         path: "/addFood",
-        element: <AddFood></AddFood>,
+        element: <PrivateRoute><AddFood></AddFood></PrivateRoute> ,
       },
       {
         path: "/manageFood",
-        element: <ManageFood></ManageFood>,
+        element: <PrivateRoute><ManageFood></ManageFood></PrivateRoute> ,
       },
       {
         path: "/foodRequest",
-        element: <FoodRequest></FoodRequest>,
+        element: <PrivateRoute><FoodRequest></FoodRequest></PrivateRoute> ,
       },
       {
         path: "/update/:id",

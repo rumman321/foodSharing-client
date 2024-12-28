@@ -43,7 +43,7 @@ const UpdateFood = () => {
       additionalNotes,
     };
     //axios kaj kn korlo na?
-    // const { data } = await axios.post(
+    // const { data } = await axios.put(
     //   `${import.meta.env.VITE_API_URL}/foods/${_id}`,
     //   newFood
     // );

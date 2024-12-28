@@ -6,22 +6,25 @@ import { MdDelete } from "react-icons/md";
 import { FaRegEdit } from "react-icons/fa";
 import Swal from "sweetalert2";
 import { Link } from "react-router-dom";
+import useAxiosSecure from "../commponents/useAxiosSecure";
 
 const ManageFood = () => {
   const { user } = useContext(AuthContext);
   const [foods, setFoods] = useState([]);
+  
   useEffect(() => {
     fetchAllFood();
   }, []);
   const fetchAllFood = async () => {
     const { data } = await axios.get(
-      `${import.meta.env.VITE_API_URL}/food/${user?.email}`
+      `${import.meta.env.VITE_API_URL}/food/${user?.email}`,
+      { withCredentials: true }
     );
+   
     setFoods(data);
   };
 
   const handleDelete = (_id) => {
-   
     Swal.fire({
       title: "Are you sure?",
       text: "You won't be able to revert this!",
@@ -44,15 +47,13 @@ const ManageFood = () => {
                 text: "Your  movie has been deleted.",
                 icon: "success",
               });
-             const remainingFoods = foods.filter(f => f._id !== _id);
-                setFoods(remainingFoods);
-              
+              const remainingFoods = foods.filter((f) => f._id !== _id);
+              setFoods(remainingFoods);
             }
           });
       }
     });
   };
-  
 
   return (
     <div className="pt-20 w-11/12 mx-auto">
@@ -72,7 +73,7 @@ const ManageFood = () => {
           </thead>
           <tbody>
             {/* row 1 */}
-            {foods.map((food) => (
+            {foods?.map((food) => (
               <tr key={food._id}>
                 <td>{food.donatorName}</td>
                 <td>{food.foodName}</td>
@@ -80,11 +81,13 @@ const ManageFood = () => {
                 <td>{food.pickupLocation}</td>
                 <td>{food.expiredDateTime}</td>
                 <td>
-                {
-                  <Link to={`/update/${food._id}`}>
-                  <button><FaRegEdit size={20}  /></button>
-                  </Link>
-                }
+                  {
+                    <Link to={`/update/${food._id}`}>
+                      <button>
+                        <FaRegEdit size={20} />
+                      </button>
+                    </Link>
+                  }
                 </td>
                 <td>
                   {" "}

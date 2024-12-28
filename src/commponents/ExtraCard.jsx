@@ -6,6 +6,7 @@ const ExtraCard = ({ food }) => {
       <div className="card card-compact bg-base-100 w-96 shadow-xl">
         <figure>
           <img
+            className="w-[250px] h-[250px] rounded-md"
             src={food?.foodimg}
             alt={food?.foodtitle}
           />
