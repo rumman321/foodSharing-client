@@ -6,7 +6,7 @@ import { MdDelete } from "react-icons/md";
 import { FaRegEdit } from "react-icons/fa";
 import Swal from "sweetalert2";
 import { Link } from "react-router-dom";
-import useAxiosSecure from "../commponents/useAxiosSecure";
+
 
 const ManageFood = () => {
   const { user } = useContext(AuthContext);

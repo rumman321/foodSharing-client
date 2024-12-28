@@ -1,8 +1,17 @@
-# React + Vite
-
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
-
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+# project name :
+ Food Maker App
+ # purpose :
+ You can Donate foods. If anyone want food he/she can get foods . its completely free.
+ # live URL : 
+ [" https://foodsharing-74e03.web.app "]
+# key features :
+*You can Donate Food
+* You can get Food
+* Email&Password & Google Login method added
+* Your added food/Requested food only you can see
+# used npm packages :
+1) react-router-dom
+2) dotenv
+3) mongodb
+5) firebase
+6) sweetalert2
