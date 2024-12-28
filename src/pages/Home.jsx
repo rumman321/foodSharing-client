@@ -40,10 +40,10 @@ const Home = () => {
       </div>
       <div className="text-center" data-aos="fade-up">
         <button
-          className="btn mt-10"
+          className="btn mt-10 bg-green-500 text-white"
           onClick={() => navigate("/availableFood")}
         >
-          View All
+          View All Food
         </button>
       </div>
       <div className="pt-10" data-aos="fade-up">

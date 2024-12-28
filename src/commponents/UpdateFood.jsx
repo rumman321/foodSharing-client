@@ -60,8 +60,9 @@ const UpdateFood = () => {
           Swal.fire({
             icon: "success",
             title: " Food Update!",
-            text: "Your movie has been updated successfully.",
+            text: "Your food has been updated successfully.",
           });
+          navigate('/availableFood')
         }
       });
   };
