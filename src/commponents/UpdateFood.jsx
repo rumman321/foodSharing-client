@@ -1,10 +1,11 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { useLoaderData, useNavigate } from "react-router-dom";
 import { AuthContext } from "../providers/AuthProvider";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
-import axios from "axios";
+
 import Swal from "sweetalert2";
+
 
 const UpdateFood = () => {
   const food = useLoaderData();
@@ -12,6 +13,7 @@ const UpdateFood = () => {
   const { user } = useContext(AuthContext);
 
   const [expiredDate, setExpiredDateTime] = useState(new Date());
+  
   const {
     _id,
     foodName,
@@ -20,10 +22,12 @@ const UpdateFood = () => {
     pickupLocation,
     expiredDateTime,
     additionalNotes,
-    donatorName,
-    donatorEmail,
-    donatorImage,
-  } = food;
+  } = food || {};
+  useEffect(()=>{
+    setExpiredDateTime(new Date(expiredDateTime).toISOString())
+  },[food])
+
+  console.log(expiredDateTime)
   const handleUpdate = async (e) => {
     e.preventDefault();
     const form = e.target;
@@ -33,6 +37,14 @@ const UpdateFood = () => {
     const pickupLocation = form.pickupLocation.value;
     const expiredDateTime = form.expiredDateTime.value;
     const additionalNotes = form.additionalNotes.value;
+    console.log(
+      foodName,
+      foodImage,
+      foodQuantity,
+      pickupLocation,
+      expiredDateTime,
+      additionalNotes
+    );
 
     const newFood = {
       foodName,
@@ -62,7 +74,7 @@ const UpdateFood = () => {
             title: " Food Update!",
             text: "Your food has been updated successfully.",
           });
-          navigate('/availableFood')
+          navigate("/availableFood");
         }
       });
   };
@@ -144,7 +156,6 @@ const UpdateFood = () => {
                 id="expiredDateTime"
                 name="expiredDateTime"
                 selected={expiredDate}
-                value={expiredDateTime}
                 onChange={(date) => setExpiredDateTime(date)}
                 dateFormat="yyyy/MM/dd"
                 className="mt-1 block bg-gray-700 text-white p-3 w-full rounded-md border-gray-300 shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
