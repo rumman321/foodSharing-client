@@ -18,51 +18,70 @@ const Details = () => {
     expiredDateTime,
     foodStatus,
   } = data;
-  //if(user.email==donatorEmail ) request pathaite dibo na retun kore dibo
+
   return (
-    <div className="pt-28 flex justify-center">
-      <div className="card card-compact bg-base-100 w-96 shadow-xl">
-        <figure>
+    <div className="pt-28 flex justify-center px-4">
+      <div className="card w-full max-w-2xl bg-base-100 shadow-xl rounded-lg overflow-hidden">
+        {/* Food Image */}
+        <figure className="w-full">
           <img
             referrerPolicy="no-referrer"
-            className="w-[200px] h-[200px]"
+            className="w-full h-64 object-cover"
             src={foodImage}
             alt={foodName}
           />
         </figure>
+
+        {/* Food Details */}
         <div className="card-body">
-          <h2 className="card-title">Food Name : {foodName} </h2>
-          <p>Quantity : {foodQuantity}</p>
-          <p>Pickup-Location : {pickupLocation}</p>
-          <p>Expired-Date : {expiredDateTime}</p>
-          <p>Additional-Notes : {additionalNotes}</p>
-          <p>Status : {foodStatus}</p>
-          <h2 className="card-title">Donar Info :</h2>
-          <div className="flex items-center gap-5">
-            <img className="rounded-full w-10" src={donatorImage} alt="" />
-            <div>
-              <p>
-                {" "}
-                Name : <strong>{donatorName}</strong>
-              </p>
-              <p>
-                {" "}
-                Email : <strong>{donatorEmail}</strong>
-              </p>
+          <h2 className="text-2xl font-semibold text-gray-800">{foodName}</h2>
+          <p className="text-gray-600">
+            <strong>Quantity:</strong> {foodQuantity}
+          </p>
+          <p className="text-gray-600">
+            <strong>Pickup Location:</strong> {pickupLocation}
+          </p>
+          <p className="text-gray-600">
+            <strong>Expires On:</strong> {expiredDateTime}
+          </p>
+          <p className="text-gray-600">
+            <strong>Notes:</strong> {additionalNotes || "No additional notes"}
+          </p>
+          <p className={`text-lg font-semibold ${foodStatus === "Available" ? "text-green-600" : "text-red-500"}`}>
+            Status: {foodStatus}
+          </p>
+
+          {/* Donor Information */}
+          <div className="mt-4 p-4 bg-gray-100 rounded-lg">
+            <h3 className="text-xl font-semibold text-gray-800">Donor Info</h3>
+            <div className="flex items-center gap-4 mt-2">
+              <img
+                className="w-12 h-12 rounded-full border"
+                src={donatorImage || "https://via.placeholder.com/100"}
+                alt={donatorName}
+              />
+              <div>
+                <p className="text-gray-700">
+                  <strong>Name:</strong> {donatorName}
+                </p>
+                <p className="text-gray-700">
+                  <strong>Email:</strong> {donatorEmail}
+                </p>
+              </div>
             </div>
           </div>
 
-          <div className="card-actions justify-end">
+          {/* Request Button */}
+          <div className="card-actions justify-end mt-4">
             <button
-              className="btn"
+              className="btn btn-primary text-white px-6 py-2 rounded-lg shadow-md transition-transform transform hover:scale-105"
               onClick={() => {
-                document.getElementById(_id).showModal()
-
-            }}
+                document.getElementById(_id).showModal();
+              }}
             >
-              Request
+              Request Food
             </button>
-            <ReqModal _id={_id}  data={data}></ReqModal>
+            <ReqModal _id={_id} data={data} />
           </div>
         </div>
       </div>
