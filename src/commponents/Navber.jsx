@@ -10,7 +10,11 @@ const Navber = () => {
       <div className="navbar bg-base-100">
         <div className="navbar-start">
           <div className="dropdown">
-            <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
+            <div
+              tabIndex={0}
+              role="button"
+              className="btn bg-orange-600 lg:hidden"
+            >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 className="h-5 w-5"
@@ -34,26 +38,92 @@ const Navber = () => {
                 <>
                   {" "}
                   <li>
-                    <NavLink to="/">Home</NavLink>
+                    <NavLink
+                      to="/"
+                      className={({ isActive }) =>
+                        `${
+                          isActive
+                            ? "bg-red-500 hover:bg-red-600 text-white font-semibold rounded-lg transition duration-300"
+                            : " hover:text-red-500 hover:font-bold"
+                        }`
+                      }
+                    >
+                      Home
+                    </NavLink>
                   </li>
                   <li>
-                    <NavLink to="/availableFood">AvailableFood</NavLink>
+                    <NavLink
+                      to="/availableFood"
+                      className={({ isActive }) =>
+                        `${
+                          isActive
+                            ? "bg-red-500 hover:bg-red-600 text-white font-semibold rounded-lg transition duration-300"
+                            : " hover:text-red-500 hover:font-bold"
+                        }`
+                      }
+                    >
+                      AvailableFood
+                    </NavLink>
                   </li>
                   <li>
-                    <NavLink to="/addFood">AddFood</NavLink>
+                    <NavLink
+                      to="/addFood"
+                      className={({ isActive }) =>
+                        `${
+                          isActive
+                            ? "bg-red-500 hover:bg-red-600 text-white font-semibold rounded-lg transition duration-300"
+                            : " hover:text-red-500 hover:font-bold"
+                        }`
+                      }
+                    >
+                      AddFood
+                    </NavLink>
                   </li>
                   <li>
-                    <NavLink to="/manageFood">ManageFood</NavLink>
+                    <NavLink
+                      to="/manageFood"
+                      className={({ isActive }) =>
+                        `${
+                          isActive
+                            ? "bg-red-500 hover:bg-red-600 text-white font-semibold rounded-lg transition duration-300"
+                            : " hover:text-red-500 hover:font-bold"
+                        }`
+                      }
+                    >
+                      ManageFood
+                    </NavLink>
                   </li>
                   <li>
-                    <NavLink to="/foodRequest">FoodRequest</NavLink>
+                    <NavLink
+                      to="/foodRequest"
+                      className={({ isActive }) =>
+                        `${
+                          isActive
+                            ? "bg-red-500 hover:bg-red-600 text-white font-semibold rounded-lg transition duration-300"
+                            : " hover:text-red-500 hover:font-bold"
+                        }`
+                      }
+                    >
+                      FoodRequest
+                    </NavLink>
                   </li>
                 </>
               ) : (
                 <>
                   {" "}
                   <li>
-                    <NavLink to="/">Home</NavLink>
+                    <NavLink
+                      to="/"
+                      className={({ isActive }) =>
+                        `${
+                          isActive
+                            ? "bg-red-500 hover:bg-red-600 text-white font-semibold rounded-lg transition duration-300"
+                            : " hover:text-red-500 hover:font-bold"
+                        }`
+                      }
+                    >
+                      Home
+                    </NavLink>
                   </li>
                   <li>
                     <NavLink to="/availableFood">AvailableFood</NavLink>
@@ -62,40 +132,117 @@ const Navber = () => {
               )}
             </ul>
           </div>
-          <a className="btn btn-ghost text-xl font-semibold">Food-Maker</a>
+          <a className="  text-xl font-bold">Food-Maker</a>
         </div>
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal px-1">
-          {user ? (
-                <>
-                  {" "}
-                  <li>
-                    <NavLink to="/">Home</NavLink>
-                  </li>
-                  <li>
-                    <NavLink to="/availableFood">AvailableFood</NavLink>
-                  </li>
-                  <li>
-                    <NavLink to="/addFood">AddFood</NavLink>
-                  </li>
-                  <li>
-                    <NavLink to="/manageFood">ManageFood</NavLink>
-                  </li>
-                  <li>
-                    <NavLink to="/foodRequest">FoodRequest</NavLink>
-                  </li>
-                </>
-              ) : (
-                <>
-                  {" "}
-                  <li>
-                    <NavLink to="/">Home</NavLink>
-                  </li>
-                  <li>
-                    <NavLink to="/availableFood">AvailableFood</NavLink>
-                  </li>
-                </>
-              )}
+            {user ? (
+              <>
+                {" "}
+                <li>
+                  <NavLink
+                    to="/"
+                    className={({ isActive }) =>
+                      `${
+                        isActive
+                          ? "bg-red-500 hover:bg-red-600 text-white font-semibold rounded-lg transition duration-300"
+                          : " hover:text-red-500 hover:font-bold"
+                      }`
+                    }
+                  >
+                    Home
+                  </NavLink>
+                </li>
+                <li>
+                  <NavLink
+                    to="/availableFood"
+                    className={({ isActive }) =>
+                      `${
+                        isActive
+                          ? "bg-red-500 hover:bg-red-600 text-white font-semibold rounded-lg transition duration-300"
+                          : " hover:text-red-500 hover:font-bold"
+                      }`
+                    }
+                  >
+                    AvailableFood
+                  </NavLink>
+                </li>
+                <li>
+                  <NavLink
+                    to="/addFood"
+                    className={({ isActive }) =>
+                      `${
+                        isActive
+                          ? "bg-red-500 hover:bg-red-600 text-white font-semibold rounded-lg transition duration-300"
+                          : " hover:text-red-500 hover:font-bold"
+                      }`
+                    }
+                  >
+                    AddFood
+                  </NavLink>
+                </li>
+                <li>
+                  <NavLink
+                    to="/manageFood"
+                    className={({ isActive }) =>
+                      `${
+                        isActive
+                          ? "bg-red-500 hover:bg-red-600 text-white font-semibold rounded-lg transition duration-300"
+                          : " hover:text-red-500 hover:font-bold"
+                      }`
+                    }
+                  >
+                    ManageFood
+                  </NavLink>
+                </li>
+                <li>
+                  <NavLink
+                    to="/foodRequest"
+                    className={({ isActive }) =>
+                      `${
+                        isActive
+                          ? "bg-red-500 hover:bg-red-600 text-white font-semibold rounded-lg transition duration-300"
+                          : " hover:text-red-500 hover:font-bold"
+                      }`
+                    }
+                  >
+                    FoodRequest
+                  </NavLink>
+                </li>
+              </>
+            ) : (
+              <>
+                {" "}
+                <li>
+                  <NavLink
+                    to="/"
+                    className={({ isActive }) =>
+                      `${
+                        isActive
+                          ? "bg-red-500 hover:bg-red-600 text-white font-semibold rounded-lg transition duration-300"
+                          : " hover:text-red-500 hover:font-bold"
+                      }`
+                    }
+                  >
+                    Home
+                  </NavLink>
+                </li>
+                <li>
+                  <NavLink
+                    to="/availableFood"
+                    className={({ isActive }) =>
+                      `${
+                        isActive
+                          ? "bg-red-500 hover:bg-red-600 text-white font-semibold rounded-lg transition duration-300"
+                          : " hover:text-red-500 hover:font-bold"
+                      }`
+                    }
+                  >
+                    AvailableFood
+                  </NavLink>
+                </li>
+              </>
+            )}
           </ul>
         </div>
         <div className="navbar-end flex items-center gap-3">
@@ -117,11 +264,11 @@ const Navber = () => {
 
           {/* btn section */}
           {user && user?.email ? (
-            <button onClick={logOut} className="btn btn-neutral ">
+            <button onClick={logOut} className="btn bg-red-500 ">
               Log Out
             </button>
           ) : (
-            <Link to="/Login" className="btn btn-neutral ">
+            <Link to="/Login" className="btn bg-red-500 ">
               Login
             </Link>
           )}
