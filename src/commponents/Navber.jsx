@@ -3,18 +3,32 @@ import { AuthContext } from "../providers/AuthProvider";
 import { Link, NavLink } from "react-router-dom";
 import userIcon from "../assets/user.png";
 
-const Navber = () => {
+const Navbar = () => {
   const { user, logOut } = useContext(AuthContext);
+
+  // Define navigation links
+  const navLinks = [
+    { path: "/", label: "Home" },
+    { path: "/availableFood", label: "Available Food" },
+  ];
+
+  // Add extra links for authenticated users
+  if (user) {
+    navLinks.push(
+      { path: "/addFood", label: "Add Food" },
+      { path: "/manageFood", label: "Manage Food" },
+      { path: "/foodRequest", label: "Food Request" }
+    );
+  }
+
   return (
     <div className="fixed z-20 w-full">
       <div className="navbar bg-base-100">
+        {/* Navbar Start Section */}
         <div className="navbar-start">
+          {/* Mobile Dropdown */}
           <div className="dropdown">
-            <div
-              tabIndex={0}
-              role="button"
-              className="btn bg-orange-600 lg:hidden"
-            >
+            <button tabIndex={0} className="btn bg-red-500 lg:hidden">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 className="h-5 w-5"
@@ -29,248 +43,74 @@ const Navber = () => {
                   d="M4 6h16M4 12h8m-8 6h16"
                 />
               </svg>
-            </div>
+            </button>
             <ul
               tabIndex={0}
               className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow"
             >
-              {user ? (
-                <>
-                  {" "}
-                  <li>
-                    <NavLink
-                      to="/"
-                      className={({ isActive }) =>
-                        `${
-                          isActive
-                            ? "bg-red-500 hover:bg-red-600 text-white font-semibold rounded-lg transition duration-300"
-                            : " hover:text-red-500 hover:font-bold"
-                        }`
-                      }
-                    >
-                      Home
-                    </NavLink>
-                  </li>
-                  <li>
-                    <NavLink
-                      to="/availableFood"
-                      className={({ isActive }) =>
-                        `${
-                          isActive
-                            ? "bg-red-500 hover:bg-red-600 text-white font-semibold rounded-lg transition duration-300"
-                            : " hover:text-red-500 hover:font-bold"
-                        }`
-                      }
-                    >
-                      AvailableFood
-                    </NavLink>
-                  </li>
-                  <li>
-                    <NavLink
-                      to="/addFood"
-                      className={({ isActive }) =>
-                        `${
-                          isActive
-                            ? "bg-red-500 hover:bg-red-600 text-white font-semibold rounded-lg transition duration-300"
-                            : " hover:text-red-500 hover:font-bold"
-                        }`
-                      }
-                    >
-                      AddFood
-                    </NavLink>
-                  </li>
-                  <li>
-                    <NavLink
-                      to="/manageFood"
-                      className={({ isActive }) =>
-                        `${
-                          isActive
-                            ? "bg-red-500 hover:bg-red-600 text-white font-semibold rounded-lg transition duration-300"
-                            : " hover:text-red-500 hover:font-bold"
-                        }`
-                      }
-                    >
-                      ManageFood
-                    </NavLink>
-                  </li>
-                  <li>
-                    <NavLink
-                      to="/foodRequest"
-                      className={({ isActive }) =>
-                        `${
-                          isActive
-                            ? "bg-red-500 hover:bg-red-600 text-white font-semibold rounded-lg transition duration-300"
-                            : " hover:text-red-500 hover:font-bold"
-                        }`
-                      }
-                    >
-                      FoodRequest
-                    </NavLink>
-                  </li>
-                </>
-              ) : (
-                <>
-                  {" "}
-                  <li>
-                    <NavLink
-                      to="/"
-                      className={({ isActive }) =>
-                        `${
-                          isActive
-                            ? "bg-red-500 hover:bg-red-600 text-white font-semibold rounded-lg transition duration-300"
-                            : " hover:text-red-500 hover:font-bold"
-                        }`
-                      }
-                    >
-                      Home
-                    </NavLink>
-                  </li>
-                  <li>
-                    <NavLink to="/availableFood">AvailableFood</NavLink>
-                  </li>
-                </>
-              )}
+              {navLinks.map(({ path, label }) => (
+                <p key={path}>
+                  <NavLink
+                    to={path}
+                    className={({ isActive }) =>
+                      `${
+                        isActive
+                          ? "bg-red-500 text-white font-semibold rounded-lg transition duration-300"
+                          : "hover:text-red-500 hover:font-bold"
+                      } p-1`
+                    }
+                  >
+                    {label}
+                  </NavLink>
+                </p>
+              ))}
             </ul>
           </div>
-          <a className="  text-xl font-bold">Food-Maker</a>
+          <span className="text-xl font-bold">Food-Maker</span>
         </div>
+
+        {/* Navbar Center Section - Desktop Menu */}
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal px-1">
-            {user ? (
-              <>
-                {" "}
-                <li>
-                  <NavLink
-                    to="/"
-                    className={({ isActive }) =>
-                      `${
-                        isActive
-                          ? "bg-red-500 hover:bg-red-600 text-white font-semibold rounded-lg transition duration-300"
-                          : " hover:text-red-500 hover:font-bold"
-                      }`
-                    }
-                  >
-                    Home
-                  </NavLink>
-                </li>
-                <li>
-                  <NavLink
-                    to="/availableFood"
-                    className={({ isActive }) =>
-                      `${
-                        isActive
-                          ? "bg-red-500 hover:bg-red-600 text-white font-semibold rounded-lg transition duration-300"
-                          : " hover:text-red-500 hover:font-bold"
-                      }`
-                    }
-                  >
-                    AvailableFood
-                  </NavLink>
-                </li>
-                <li>
-                  <NavLink
-                    to="/addFood"
-                    className={({ isActive }) =>
-                      `${
-                        isActive
-                          ? "bg-red-500 hover:bg-red-600 text-white font-semibold rounded-lg transition duration-300"
-                          : " hover:text-red-500 hover:font-bold"
-                      }`
-                    }
-                  >
-                    AddFood
-                  </NavLink>
-                </li>
-                <li>
-                  <NavLink
-                    to="/manageFood"
-                    className={({ isActive }) =>
-                      `${
-                        isActive
-                          ? "bg-red-500 hover:bg-red-600 text-white font-semibold rounded-lg transition duration-300"
-                          : " hover:text-red-500 hover:font-bold"
-                      }`
-                    }
-                  >
-                    ManageFood
-                  </NavLink>
-                </li>
-                <li>
-                  <NavLink
-                    to="/foodRequest"
-                    className={({ isActive }) =>
-                      `${
-                        isActive
-                          ? "bg-red-500 hover:bg-red-600 text-white font-semibold rounded-lg transition duration-300"
-                          : " hover:text-red-500 hover:font-bold"
-                      }`
-                    }
-                  >
-                    FoodRequest
-                  </NavLink>
-                </li>
-              </>
-            ) : (
-              <>
-                {" "}
-                <li>
-                  <NavLink
-                    to="/"
-                    className={({ isActive }) =>
-                      `${
-                        isActive
-                          ? "bg-red-500 hover:bg-red-600 text-white font-semibold rounded-lg transition duration-300"
-                          : " hover:text-red-500 hover:font-bold"
-                      }`
-                    }
-                  >
-                    Home
-                  </NavLink>
-                </li>
-                <li>
-                  <NavLink
-                    to="/availableFood"
-                    className={({ isActive }) =>
-                      `${
-                        isActive
-                          ? "bg-red-500 hover:bg-red-600 text-white font-semibold rounded-lg transition duration-300"
-                          : " hover:text-red-500 hover:font-bold"
-                      }`
-                    }
-                  >
-                    AvailableFood
-                  </NavLink>
-                </li>
-              </>
-            )}
+            {navLinks.map(({ path, label }) => (
+              <p key={path}>
+                <NavLink
+                  to={path}
+                  className={({ isActive }) =>
+                    `${
+                      isActive
+                        ? "bg-red-500 text-white font-semibold rounded-lg transition duration-300"
+                        : "hover:text-red-500 hover:font-bold"
+                    } p-2`
+                  }
+                >
+                  {label}
+                </NavLink>
+              </p>
+            ))}
           </ul>
         </div>
+
+        {/* Navbar End Section - User Profile & Auth Buttons */}
         <div className="navbar-end flex items-center gap-3">
-          {/* <img src={userIcon} alt="" /> */}
-          <div className=" ">
-            {user && user?.email ? (
-              <div className=" cursor-pointer">
-                <img
-                  className="w-10 rounded-full"
-                  title={user.displayName}
-                  src={user?.photoURL}
-                  alt=""
-                />
-              </div>
+          <div className="cursor-pointer">
+            {user?.photoURL ? (
+              <img
+                className="w-10 rounded-full"
+                title={user.displayName}
+                src={user.photoURL}
+                alt="User"
+              />
             ) : (
-              <img src={userIcon} alt="" />
+              <img className="w-10" src={userIcon} alt="Default User" />
             )}
           </div>
 
-          {/* btn section */}
-          {user && user?.email ? (
-            <button onClick={logOut} className="btn bg-red-500 ">
-              Log Out
-            </button>
+          {/* Authentication Button */}
+          {user ? (
+            <button onClick={logOut} className="btn bg-red-500">Log Out</button>
           ) : (
-            <Link to="/Login" className="btn bg-red-500 ">
-              Login
-            </Link>
+            <Link to="/Login" className="btn bg-red-500">Login</Link>
           )}
         </div>
       </div>
@@ -278,4 +118,4 @@ const Navber = () => {
   );
 };
 
-export default Navber;
+export default Navbar;

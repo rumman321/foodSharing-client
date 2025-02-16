@@ -32,7 +32,7 @@
    ```sh
    git clone <repository-url>
    cd food-maker-app
-
+   ```
 2. Install dependencies:
    ```sh
    npm install

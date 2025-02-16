@@ -40,7 +40,7 @@ const Home = () => {
       </div>
       <div className="text-center" data-aos="fade-up">
         <button
-          className="btn mt-10 bg-green-500 text-white"
+          className="btn mt-10 bg-red-500 text-white"
           onClick={() => navigate("/availableFood")}
         >
           View All Food
